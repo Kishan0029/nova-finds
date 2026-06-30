@@ -1,0 +1,32 @@
+-- Update product names to match exact Deodap Titles
+
+UPDATE products SET name = 'Rotating Storage Rack – 4-Tier Multipurpose Organizer' WHERE name = 'Multi-purpose Rotating Storage Tray';
+UPDATE products SET name = '12-Pocket Hanging Shoe Organizer – Space-Saving Durable Storage' WHERE name = 'Transparent Stackable Shoe Storage (6 pcs)';
+UPDATE products SET name = 'Rechargeable Keychain Flashlight – 4 Light Modes, Magnetic Base | Vastate' WHERE name = 'Wall-Mounted Magnetic Key & Mail Holder';
+UPDATE products SET name = 'Foldable Laundry Basket with Wheels – Portable & Ventilated' WHERE name = 'Foldable Laundry Basket with Handles';
+UPDATE products SET name = 'Expandable Dish Drainer – Stainless Steel Over Sink Rack | CookAura' WHERE name = 'Under-Sink Telescopic Rack Organizer';
+UPDATE products SET name = 'Silicone Cable Protector – Angel Cord Saver & Organizer | WipeTech' WHERE name = 'Silicone Cable Organizers (10 pcs)';
+UPDATE products SET name = 'Vacuum Storage Bags with Suction Pump – Space-Saving 5 Pcs Set' WHERE name = 'Vacuum Storage Bags with Hand Pump (5 pcs)';
+UPDATE products SET name = 'Automatic Toothpaste Dispenser – Wall Mount | BrushedUp' WHERE name = 'Automatic Toothpaste Dispenser';
+UPDATE products SET name = 'Small Reusable Lint Roller – Portable Pet Hair Remover' WHERE name = 'Reusable Lint Roller with Telescopic Pole';
+UPDATE products SET name = 'Fridge Organizer Drawer – Adjustable Storage Baskets (4-Pc Set) | Organivo' WHERE name = 'Honeycomb Drawer Organizers (4 pcs)';
+UPDATE products SET name = 'Premium 6mm Cable Management Nail Clips – Easy Wire Organization' WHERE name = 'Adhesive Cable Management Clips';
+UPDATE products SET name = 'Carbon Steel Over Door Hook Rack – Heavy-Duty 6 Hooks, Black' WHERE name = 'Expandable Over-the-Door Hooks';
+UPDATE products SET name = 'Vegetable Slicer – 6-in-1 Chopper, Grater & Slicer Set for Kitchen' WHERE name = '14-in-1 Vegetable Chopper and Slicer';
+UPDATE products SET name = 'Oil Spray Bottle 300ml – Fine Mist Glass Dispenser for Cooking' WHERE name = 'Automatic Oil Dispenser with Silicone Brush';
+UPDATE products SET name = 'Mini Electric Garlic Chopper – USB Rechargeable 300ml | Indo Glow' WHERE name = 'Rechargeable Mini Garlic Chopper';
+UPDATE products SET name = 'Triangular Kitchen Colander – Ergonomic Handle & Quick Drainage' WHERE name = 'Extendable Stainless Steel Sink Colander';
+UPDATE products SET name = 'Silicone Food Covers – 6 Pc Reusable Stretch Lids | Tidy Table' WHERE name = 'Silicone Stretch Lids (Set of 6)';
+UPDATE products SET name = 'Kids Faucet Extender – Easy Hand Wash & Splash-Free Design for Children' WHERE name = '360-Degree Rotating Faucet Extender';
+UPDATE products SET name = 'Multipurpose Spice Rack – Airtight Set of 8 Jars with Tray' WHERE name = 'Tiered Spice Rack Organizer';
+UPDATE products SET name = 'Female Urinal Funnel – Portable Reusable Silicone | Velvet Wellness' WHERE name = 'Anti-Spill Silicone Funnel for Pots';
+UPDATE products SET name = 'Portable Electric Vacuum Sealer – Compact Food Preservation Tool' WHERE name = 'Multi-Layer Food Preservation Cover';
+UPDATE products SET name = 'LED Toilet Bowl Light – Motion Sensor, 8 Colours | Indo Glow' WHERE name = 'Motion Sensor Wireless LED Night Light';
+UPDATE products SET name = 'Magnetic Car Charger – Wireless Phone Mount with RGB Lights | Phonixio' WHERE name = '3-in-1 Foldable Magnetic Wireless Charger';
+UPDATE products SET name = 'Bladeless Neck Fan – USB Rechargeable & Hands-Free | DeoDap' WHERE name = 'Portable Neck Fan (Rechargeable)';
+UPDATE products SET name = 'Sunset Projection Lamp – Multi-Color LED Light | Indo Glow' WHERE name = 'Sunset Projection Lamp';
+UPDATE products SET name = 'Plastic Measuring Spoon – Multi-Purpose Flour & Rice Scoop | Styleva' WHERE name = 'Electronic Measuring Spoon with LCD';
+UPDATE products SET name = 'Astronaut Desk Lamp – Kids Study Light with Alarm Clock' WHERE name = 'Smart LED Desk Lamp with Wireless Charging';
+UPDATE products SET name = 'Travel Makeup Organizer – Waterproof Compact Cosmetic Pouch' WHERE name = 'Electronic Organizer Travel Cable Pouch';
+UPDATE products SET name = 'Mini Car Vacuum – Wireless, Portable & 3-in-1 Cleaner | Storenzo' WHERE name = 'Portable Mini Car Vacuum Cleaner';
+UPDATE products SET name = 'Oil Spray Bottle 300ml – Fine Mist Glass Dispenser for Cooking' WHERE name = '4-in-1 Travel Dispenser Bottle';

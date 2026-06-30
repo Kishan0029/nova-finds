@@ -1,0 +1,30 @@
+-- Update product images with actual Deodap images
+
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/KitchenOrganizationRotatingShelf-WOSKU-01.jpg?v=1777095797' WHERE name = 'Multi-purpose Rotating Storage Tray';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/Hanging-shoe-organizer-01.jpg?v=1764651151' WHERE name = 'Transparent Stackable Shoe Storage (6 pcs)';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/keychain-light-01.jpg?v=1751603761' WHERE name = 'Wall-Mounted Magnetic Key & Mail Holder';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/4f81fe47-f58e-438f-a598-4b9c7b58f073.jpg?v=1754458465' WHERE name = 'Foldable Laundry Basket with Handles';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/3f575524-ce72-4c02-b3c1-bccbf2482399_e9d3fe99-ddd8-42cf-b8ce-6577c860349f.jpg?v=1699007313' WHERE name = 'Under-Sink Telescopic Rack Organizer';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/02_67d8ac65-23b4-4c0d-95d9-8e5ac9356c5d.jpg?v=1750909279' WHERE name = 'Silicone Cable Organizers (10 pcs)';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/3030331.webp?v=1769172072' WHERE name = 'Vacuum Storage Bags with Hand Pump (5 pcs)';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/01_51e4361e-c346-4d74-b36f-96a3c8dd0350.jpg?v=1757155385' WHERE name = 'Automatic Toothpaste Dispenser';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/01_f139b8fd-757c-44c9-9421-12a83b3389c0.jpg?v=1740998593' WHERE name = 'Reusable Lint Roller with Telescopic Pole';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/CableClips6MM-WOSKU-01.jpg?v=1774081180' WHERE name = 'Adhesive Cable Management Clips';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/01_62bc36ec-cb74-405d-b25d-fa945a3fdc94.jpg?v=1739949253' WHERE name = 'Expandable Over-the-Door Hooks';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/01_07587ffb-b4c2-422e-b653-0ab188b1a2f6.jpg?v=1759468036' WHERE name = '14-in-1 Vegetable Chopper and Slicer';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/02_oil-bottle.jpg?v=1759918949' WHERE name = 'Automatic Oil Dispenser with Silicone Brush';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/01_1ea965de-8962-4bae-b379-c5b26aa6abe6.jpg?v=1769602314' WHERE name = 'Rechargeable Mini Garlic Chopper';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/01_7d72ee7a-abeb-4304-a298-a8eb125b86ca.jpg?v=1737618628' WHERE name = 'Silicone Stretch Lids (Set of 6)';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/01_fd371259-b2ef-40ae-ab2f-b0ae59cabb9d.jpg?v=1773997727' WHERE name = '360-Degree Rotating Faucet Extender';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/XRPvflcmUk.jpg?v=1764061392' WHERE name = 'Tiered Spice Rack Organizer';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/01_76c9e9f3-8406-4d19-b535-91b7a1f7cd06.jpg?v=1737630891' WHERE name = 'Anti-Spill Silicone Funnel for Pots';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/Vacuumsealer-WOSKU-01.jpg?v=1773729879' WHERE name = 'Multi-Layer Food Preservation Cover';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/01_523ba3ed-33ba-4511-b3c6-1d05de13491e.jpg?v=1737616828' WHERE name = 'Motion Sensor Wireless LED Night Light';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/5dd5868c-b044-4068-a38a-75562f8da40a.jpg?v=1766751315' WHERE name = '3-in-1 Foldable Magnetic Wireless Charger';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/01_8e168b7f-882e-4f0c-8215-cf948f36ede7.jpg?v=1752475858' WHERE name = 'Portable Neck Fan (Rechargeable)';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/01_adf4df0e-2746-4f15-a62f-769b4ad3843d.jpg?v=1769172005' WHERE name = 'Sunset Projection Lamp';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/LargePlasticMeasuringSpoons-01.jpg?v=1781937798' WHERE name = 'Electronic Measuring Spoon with LCD';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/wm0kzQBXeT.png?v=1767270041' WHERE name = 'Smart LED Desk Lamp with Wireless Charging';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/01_01ce580f-e142-468d-accb-c0bb4af34fea.jpg?v=1750925929' WHERE name = 'Electronic Organizer Travel Cable Pouch';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/3in1Vacuumcleaner-WOSKU-01_92853fde-2a71-4058-a126-2bc5c7062d97.jpg?v=1767079415' WHERE name = 'Portable Mini Car Vacuum Cleaner';
+UPDATE products SET image = 'https://cdn.shopify.com/s/files/1/0782/3284/6646/files/02_oil-bottle.jpg?v=1759918949' WHERE name = '4-in-1 Travel Dispenser Bottle';
