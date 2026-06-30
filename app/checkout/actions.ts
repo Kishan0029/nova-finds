@@ -17,11 +17,6 @@ interface OrderInput {
   items: { id: string; quantity: number }[]
 }
 
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID || '',
-  key_secret: process.env.RAZORPAY_KEY_SECRET || '',
-})
-
 export async function placeOrder(input: OrderInput) {
   const supabase = await createClient()
 
@@ -119,6 +114,17 @@ export async function placeOrder(input: OrderInput) {
 
   // 7. Handle Razorpay (create Razorpay order)
   try {
+    if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+      // Rollback order
+      await supabase.from('orders').delete().eq('id', order.id)
+      return { success: false, error: 'Payment gateway is not configured.' }
+    }
+
+    const razorpay = new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_KEY_SECRET,
+    })
+
     const razorpayOrder = await razorpay.orders.create({
       amount: totalAmount * 100, // paise
       currency: 'INR',
