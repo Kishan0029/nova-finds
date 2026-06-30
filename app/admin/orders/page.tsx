@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Search, FileText, MoreHorizontal } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Search, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -13,24 +13,45 @@ import {
   TableBody
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-
-// Mock Orders
-const mockOrders = [
-  { id: "ORD-7392", customer: "Rahul Sharma", email: "rahul.s@example.com", total: 24999, status: "Processing", date: "2026-06-30" },
-  { id: "ORD-7391", customer: "Priya Patel", email: "priya.p@example.com", total: 5499, status: "Shipped", date: "2026-06-30" },
-  { id: "ORD-7390", customer: "Amit Singh", email: "amit.s@example.com", total: 12899, status: "Delivered", date: "2026-06-29" },
-  { id: "ORD-7389", customer: "Sneha Reddy", email: "sneha.r@example.com", total: 45000, status: "Processing", date: "2026-06-29" },
-  { id: "ORD-7388", customer: "Karan Desai", email: "karan.d@example.com", total: 2999, status: "Cancelled", date: "2026-06-28" },
-  { id: "ORD-7387", customer: "Anjali Gupta", email: "anjali.g@example.com", total: 8599, status: "Delivered", date: "2026-06-28" },
-  { id: "ORD-7386", customer: "Vikram Malhotra", email: "vikram.m@example.com", total: 31999, status: "Shipped", date: "2026-06-27" },
-];
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { getAdminOrders, updateOrderStatus } from "../actions";
 
 export default function AdminOrdersPage() {
   const [search, setSearch] = useState("");
+  const [orders, setOrders] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [updatingId, setUpdatingId] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+
+  const fetchOrders = async () => {
+    setLoading(true);
+    const data = await getAdminOrders();
+    setOrders(data);
+    setLoading(false);
+  };
+
+  const handleStatusUpdate = async (orderId: string, newStatus: string) => {
+    setUpdatingId(orderId);
+    const result = await updateOrderStatus(orderId, newStatus);
+    if (result.success) {
+      setOrders(orders.map(o => o.id === orderId ? { ...o, order_status: newStatus } : o));
+    } else {
+      alert("Failed to update status");
+    }
+    setUpdatingId(null);
+  };
   
-  const filteredOrders = mockOrders.filter(o => 
+  const filteredOrders = orders.filter(o => 
     o.id.toLowerCase().includes(search.toLowerCase()) || 
-    o.customer.toLowerCase().includes(search.toLowerCase()) ||
+    o.shipping_name.toLowerCase().includes(search.toLowerCase()) ||
     o.email.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -41,13 +62,17 @@ export default function AdminOrdersPage() {
           <h1 className="font-heading text-3xl font-bold tracking-tight text-foreground">Orders</h1>
           <p className="text-muted-foreground mt-1">Manage customer orders and fulfillments.</p>
         </div>
+        <Button onClick={fetchOrders} variant="outline" disabled={loading}>
+          {loading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
+          Refresh
+        </Button>
       </div>
 
       <div className="flex items-center py-4">
         <div className="relative w-full max-w-sm">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder="Search by order ID or customer..."
+            placeholder="Search by order ID, name, or email..."
             className="pl-9"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -68,46 +93,70 @@ export default function AdminOrdersPage() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {filteredOrders.map((order) => (
-              <TableRow key={order.id}>
-                <TableCell className="font-medium">{order.id}</TableCell>
-                <TableCell>
-                  <div className="flex flex-col">
-                    <span className="font-medium">{order.customer}</span>
-                    <span className="text-xs text-muted-foreground">{order.email}</span>
-                  </div>
-                </TableCell>
-                <TableCell>{order.date}</TableCell>
-                <TableCell>₹{order.total.toLocaleString("en-IN")}</TableCell>
-                <TableCell>
-                  <Badge variant={
-                    order.status === "Delivered" ? "default" : 
-                    order.status === "Shipped" ? "secondary" : 
-                    order.status === "Processing" ? "outline" : "destructive"
-                  }>
-                    {order.status}
-                  </Badge>
-                </TableCell>
-                <TableCell className="text-right">
-                  <div className="flex items-center justify-end gap-2">
-                    <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
-                      <FileText className="h-4 w-4" />
-                    </Button>
-                    <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
-                      <MoreHorizontal className="h-4 w-4" />
-                    </Button>
-                  </div>
+            {loading ? (
+              <TableRow>
+                <TableCell colSpan={6} className="text-center py-8">
+                  <Loader2 className="h-6 w-6 animate-spin mx-auto text-muted-foreground" />
                 </TableCell>
               </TableRow>
-            ))}
+            ) : filteredOrders.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={6} className="text-center py-12 text-muted-foreground">
+                  No orders found.
+                </TableCell>
+              </TableRow>
+            ) : (
+              filteredOrders.map((order) => (
+                <TableRow key={order.id}>
+                  <TableCell className="font-medium">
+                    {order.id.split('-')[0]}
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex flex-col">
+                      <span className="font-medium">{order.shipping_name}</span>
+                      <span className="text-xs text-muted-foreground">{order.email}</span>
+                    </div>
+                  </TableCell>
+                  <TableCell>{new Date(order.created_at).toLocaleDateString()}</TableCell>
+                  <TableCell>₹{Number(order.total_amount).toLocaleString("en-IN")}</TableCell>
+                  <TableCell>
+                    <Badge variant={
+                      order.order_status === "delivered" ? "default" : 
+                      order.order_status === "shipped" ? "secondary" : 
+                      order.order_status === "processing" ? "outline" : "destructive"
+                    } className="capitalize">
+                      {order.order_status}
+                    </Badge>
+                  </TableCell>
+                  <TableCell className="text-right">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="outline" size="sm" disabled={updatingId === order.id}>
+                          {updatingId === order.id ? <Loader2 className="h-3 w-3 animate-spin mr-1" /> : null}
+                          Update Status
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        <DropdownMenuItem onClick={() => handleStatusUpdate(order.id, 'processing')}>
+                          Mark as Processing
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleStatusUpdate(order.id, 'shipped')}>
+                          Mark as Shipped
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleStatusUpdate(order.id, 'delivered')}>
+                          Mark as Delivered
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleStatusUpdate(order.id, 'cancelled')} className="text-destructive">
+                          Mark as Cancelled
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </TableCell>
+                </TableRow>
+              ))
+            )}
           </TableBody>
         </Table>
-        
-        {filteredOrders.length === 0 && (
-          <div className="text-center py-12 text-muted-foreground">
-            No orders found matching "{search}"
-          </div>
-        )}
       </div>
     </div>
   );

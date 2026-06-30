@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function FeaturedProducts() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<any[]>([]);
 
   useEffect(() => {
     async function fetchProducts() {
