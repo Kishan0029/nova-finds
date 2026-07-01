@@ -80,9 +80,10 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row items-center justify-between border-t border-border pt-8 gap-4 text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} Nova Finds. All rights reserved.</p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center">
             <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link>
+            <Link href="/refund" className="hover:text-foreground transition-colors">Refund Policy</Link>
           </div>
         </div>
       </div>
